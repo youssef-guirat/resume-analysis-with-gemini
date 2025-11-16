@@ -1,0 +1,34 @@
+
+services:
+  fastapi-app:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app  # monte ton code local dans le conteneur
+    working_dir: /app        # dossier courant dans le conteneur
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    networks:
+      - monitoring
+
+
+  prometheus:
+    image: prom/prometheus:v2.37.0
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml  # Mount Prometheus config
+    ports:
+      - "9090:9090"
+    networks:
+      - monitoring
+
+  grafana:
+    image: grafana/grafana:9.0.0
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin  # Grafana default password
+    ports:
+      - "3000:3000"
+    networks:
+      - monitoring
+
+networks:
+  monitoring:

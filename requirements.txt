@@ -1,0 +1,12 @@
+google-generativeai
+fastapi
+uvicorn
+jinja2
+PyMuPDF
+prometheus-client
+python-multipart
+requests
+watchfiles
+python-dotenv
+
+

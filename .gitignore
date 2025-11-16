@@ -1,0 +1,10 @@
+.env
+venv/
+env/
+.venv/
+nlpfast/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+uploads/
