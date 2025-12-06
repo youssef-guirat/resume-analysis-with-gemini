@@ -51,7 +51,6 @@ project/
 │── prometheus.yml
 │── templates/
 │     └── index.html
-│── uploads/ (ignored by Git)
 │── .gitignore
 └── README.md
 ```
