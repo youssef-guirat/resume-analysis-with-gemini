@@ -41,6 +41,7 @@ Python | Core programming language
 
 ### Structure
 📂 Project Structure
+'''
 project/
 │── main.py
 │── analyse_pdf.py
@@ -52,5 +53,5 @@ project/
 │     └── index.html
 │── .gitignore
 └── README.md
-
+'''
 
