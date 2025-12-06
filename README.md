@@ -28,7 +28,7 @@ Easy deployment using Docker + Docker Compose.
 Ideal for learning, showcasing, and expanding.
 
 🛠️ Technologies Used
-First Header | Second Header 
+Technologie | Purpose
 ------------ | ------------- 
 FastAPI	Backend | framework
 Gemini API	AI model | for résumé analysis
@@ -38,6 +38,8 @@ Grafana 	|Metrics visualization
 Docker & Docker Compose |	Containerized deployment
 Python | Core programming language
 
+
+### Structure
 📂 Project Structure
 project/
 │── main.py
@@ -48,7 +50,7 @@ project/
 │── prometheus.yml
 │── templates/
 │     └── index.html
-│── uploads/ (ignored by Git)
 │── .gitignore
 └── README.md
+
 
