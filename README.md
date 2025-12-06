@@ -1,4 +1,4 @@
-
+#Resume analysis 
 
 This project is an AI-driven résumé analysis platform that automatically extracts content from PDF résumés, compares it with job descriptions, and generates actionable insights using Gemini AI.
 It is built with FastAPI for high-performance backend services and includes Prometheus and Grafana to provide real-time monitoring, request analytics, and application performance dashboards.
@@ -28,13 +28,15 @@ Easy deployment using Docker + Docker Compose.
 Ideal for learning, showcasing, and expanding.
 
 🛠️ Technologies Used
-FastAPI	Backend framework
-Gemini API	AI model for résumé analysis
-PyMuPDF (Fitz)	PDF text extraction
-Prometheus	Metrics collection
-Grafana	Metrics visualization
-Docker & Docker Compose	Containerized deployment
-Python	Core programming language
+First Header | Second Header 
+------------ | ------------- 
+FastAPI	Backend | framework
+Gemini API	AI model | for résumé analysis
+PyMuPDF (Fitz)	| PDF text extraction
+Prometheus |	Metrics collection
+Grafana 	|Metrics visualization
+Docker & Docker Compose |	Containerized deployment
+Python | Core programming language
 
 📂 Project Structure
 project/
