@@ -13,6 +13,7 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 # --- Prometheus metrics ---
 REQUEST_COUNT = Counter("request_count", "Total number of requests")
 REQUEST_LATENCY = Histogram("request_latency_seconds", "Request latency in seconds")
+RESUME_UPLOADS = Counter("resume_uploads_total", "Total number of resumes uploaded")
 
 @app.middleware("http")
 async def add_metrics(request, call_next):
@@ -32,6 +33,7 @@ async def upload_resume(
     resume: UploadFile = File(...),
     job_description: str = Form(...)
 ):
+    RESUME_UPLOADS.inc()
     pdf_path = os.path.join(UPLOAD_FOLDER, resume.filename)
     with open(pdf_path, "wb") as f:
         f.write(await resume.read())

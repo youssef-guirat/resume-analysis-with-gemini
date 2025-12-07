@@ -3,15 +3,15 @@ import os
 import json
 from dotenv import load_dotenv
 
-# --- 1. Load environment variables ---
+# Load environment variables
 load_dotenv()
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
-# --- 2. Configure the Gemini model ---
+#  Configuration of  the Gemini model 
 model = genai.GenerativeModel(
     model_name="gemini-2.0-flash",
     generation_config={
-        "temperature": 0.4,           # Balanced creativity for consistency
+        "temperature": 0.4,           
         "top_p": 0.9,
         "top_k": 40,
         "max_output_tokens": 2048,
@@ -19,7 +19,7 @@ model = genai.GenerativeModel(
     }
 )
 
-# --- 3. Define the resume analysis function ---
+#  Define the resume analysis function 
 def analyse_resume_gemini(resume_content, job_description):
     """
     Compare a resume with a job description using Google's Gemini model.
@@ -64,11 +64,11 @@ Rules:
 - Ensure all lists are properly formatted arrays.
 """
 
-    # --- b. Call Gemini API ---
+    #  Call Gemini API 
     response = model.generate_content(prompt)
     text = getattr(response, "text", None) or getattr(response, "output_text", "")
 
-    # --- c. Cleanup ---
+    #  Cleanup 
     text = text.strip()
     if text.startswith("```json"):
         text = text.replace("```json", "")
@@ -76,7 +76,7 @@ Rules:
         text = text.replace("```", "")
     text = text.strip()
 
-    # --- d. Try parsing JSON safely ---
+    #   Try parsing JSON safely 
     try:
         data = json.loads(text)
     except json.JSONDecodeError:
@@ -99,7 +99,7 @@ Rules:
             }
         }
 
-    # --- e. Add a human-readable fit label ---
+    #  Add a human-readable fit label 
     score = data.get("match_score", 0)
     if isinstance(score, (int, float)):
         if score >= 80:
