@@ -7,7 +7,13 @@ The entire system runs in lightweight, isolated services using Docker, making it
 🚀 Features
 
 🔍 AI-Powered Résumé Analysis
-Uses Gemini AI to compare résumé content with job descriptions and generate actionable insights.
+Analyse résumé content using Gemini 2.0 Flash
+
+Compare résumé text vs job description
+
+Extract strengths, weaknesses, and an overall matching score
+
+Generate clear, actionable recommendations
 
 📄 PDF Text Extraction
 Uses PyMuPDF (Fitz) for fast and accurate text extraction.
@@ -24,8 +30,6 @@ Clean and real-time visualization of Prometheus metrics.
 🐳 Dockerized Architecture
 Easy deployment using Docker + Docker Compose.
 
-🧩 Extensible & Clean Codebase
-Ideal for learning, showcasing, and expanding.
 
 🛠️ Technologies Used
 Technologie | Purpose
@@ -54,5 +58,71 @@ project/
 │── .gitignore
 └── README.md
 ```
+## 🐳 Run the Project
+🔥 Option 1 — Run with Docker 
+1️⃣ Start all services
+```
+docker-compose up -d
+```
+2️⃣ Access Services
+Service	| URL
+------------ | ------------- 
+FastAPI App | http://localhost:8000
+Prometheus | http://localhost:9090
+Grafana | http://localhost:3000
 
+
+Grafana Login
+
+Username: admin
+
+Password: admin
+
+## 🖥️ Option 2 — Run Locally
+1️⃣ Create a Virtual Environment
+```
+python -m venv venv
+source venv/bin/activate     # macOS/Linux
+venv\Scripts\activate        # Windows
+```
+2️⃣ Install Dependencies
+```
+pip install -r requirements.txt
+```
+
+3️⃣ Start FastAPI
+```
+uvicorn main:app --reload
+```
+
+➡️ Open browser → http://localhost:8000
+
+🔑 API Key Setup (Required)
+
+Gemini API is needed for AI résumé analysis.
+
+✅ Step 1 — Get Your API Key
+
+➡️ Visit:
+
+👉 https://aistudio.google.com/apikey
+
+Create an API key and copy it.
+
+✅ Step 2 — Create a .env File
+
+In the project root (same level as main.py) create:
+```
+.env
+```
+
+Add your key:
+```
+GEMINI_API_KEY=your_api_key_here
+```
+✅ Step 3 — Done
+
+The project automatically loads the key using python-dotenv
+
+.env is already in .gitignore → it will NOT be committed
 
